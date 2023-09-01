@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/constants";
+import { toggleAISearchView } from "../utils/AiSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -43,12 +44,22 @@ const Header = () => {
 
     return () => unSubscribe();
   }, []);
+  const handleAiSearchClick = () => {
+    //Toggle Ai Search
+    dispatch(toggleAISearchView());
+  };
   return (
     <div>
       <div className="justify-between flex w-screen absolute px-8 py-2 bg-gradient-to-b from-black z-10">
         <img className="w-44" src={LOGO} alt="logo" />
         {user && (
           <div className="flex p-2">
+            <button
+              className="rounded-lg py-2 px-4 my-2 mx-4 bg-purple-800 text-100"
+              onClick={handleAiSearchClick}
+            >
+              AI Search
+            </button>
             <img className="w-12 h-12" alt="usericon" src={user?.photoURL} />
             <button onClick={handleSignOut} className="text-white font-bold">
               Sign Out
