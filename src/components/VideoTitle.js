@@ -6,8 +6,8 @@ const VideoTitle = ({ title, overview }) => {
       <h1 className="text-6xl font-bold">{title}</h1>
       <p className="py-6 text-lg w-1/2">{overview}</p>
       <div>
-        <button className="hover:bg-opacity-80 bg-white text-black rounded-lg bg-gray-500 text-white p-4 w-18 px-12 text-xl">
-          Play
+        <button className=" bg-white text-black p-4 px-12 text-xl  rounded-lg hover:bg-opacity-80">
+          ▶️ Play
         </button>
         <button className="bg-opacity-50 rounded-lg bg-gray-500 text-white p-4 w-18 px-12 text-xl mx-2">
           More Info
