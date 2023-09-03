@@ -10,8 +10,12 @@ const AiSearchBar = () => {
     console.log(searchText.current.value);
 
     //const airesults = await function main() {
+    const aiQuery =
+      "Act as a Movie Recommendation system and suggest some movies for the query" +
+      searchText.current.value +
+      "Only give me names of 5 movies, comma separated like the example result given ahead. Example result: Sholay, Don, Bahubali, RRR, KGF";
     const aiResults = await openai.chat.completions.create({
-      messages: [{ role: "user", content: "Say this is a test" }],
+      messages: [{ role: "user", content: searchText.current.value }],
       model: "gpt-3.5-turbo",
     });
     console.log(aiResults.choices);
